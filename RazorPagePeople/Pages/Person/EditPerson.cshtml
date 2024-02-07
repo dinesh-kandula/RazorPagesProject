@@ -1,0 +1,95 @@
+﻿@page
+@model RazorPagePeople.Pages.Person.EditPersonModel
+@{
+    ViewData["Title"] = "Edit Person";
+    var email = Model.Person.EmailId;
+}
+
+
+<h1>Update</h1>
+
+<h4>Person</h4>
+<hr />
+
+<partial name="_LogMessage" />
+
+<div>
+    <form asp-action="Edit" enctype="multipart/form-data">
+        <div class="form-group">
+            <input asp-for="Person.Id" class="form-control" hidden />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Person.Name" class="form-label"></label>
+            <input asp-for="Person.Name" class="form-control" placeholder="Enter Your Name" />
+            <span class="text-danger" asp-validation-for="Person.Name"></span>
+        </div>
+
+     @*    <input type="hidden" asp-for="Person.UserName" />
+        <input type="hidden" asp-for="Person.Password" /> *@
+
+        <div class="form-group my-1">
+            <label asp-for="Person.ImageFile" class="form-label">Profile Picture</label>
+            <div class="d-flex align-items-center">
+                <input type="file" class="form-control" style="width:300px" asp-for="Person.ImageFile" />
+
+                @if (!string.IsNullOrEmpty(Model.Person.Profile))
+                {
+                    <img class="border-5 ms-3" style="width:150px;" src="/Uploads/@Model.Person.Profile" alt="Person.Name" />
+                    <input type="hidden" asp-for="@Model.Person.Profile" />
+                }
+            </div>
+            <span class="text-danger" asp-validation-for="Person.ImageFile"></span>
+        </div>
+        
+        <div class="form-group">
+            <label asp-for="Person.Gender" class="form-label"></label>
+            <select asp-for="Person.Gender" class="form-select" asp-items="Html.GetEnumSelectList<Data.Gender>()">
+                <option value="">Select Gender</option>
+            </select>
+            <span class="text-danger" asp-validation-for="Person.Gender"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Person.City" class="form-label"></label>
+            <select asp-for="Person.City" class="form-select" asp-items="Html.GetEnumSelectList<Data.City>()">
+                <option value="">Select City</option>
+            </select>
+            <span class="text-danger" asp-validation-for="Person.City"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Person.EmailId" class="form-label"></label>
+            
+            @if(email != null)
+            {
+                <input asp-for="Person.EmailId" class="form-control" placeholder="Enter your Email Id" hidden />
+                <input value="@email" class="form-control" placeholder="Enter your Email Id" disabled />
+            }
+            else
+            {
+                <input asp-for="Person.EmailId" class="form-control" placeholder="Enter your Email Id" />
+            }
+            <span class="text-danger" asp-validation-for="Person.EmailId"></span>
+        </div>
+
+        <div class="form-group mt-3">
+            <input type="submit" value="Update" class="btn btn-primary" />
+        </div>
+    </form>
+
+    <div class="my-2">
+        <a class="btn btn-outline-dark" asp-page="PersonsList">
+            Back to Index
+        </a>
+    </div>
+</div>
+
+
+
+@section Scripts
+{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

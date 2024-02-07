@@ -1,0 +1,70 @@
+﻿@page
+@model RazorPagePeople.Pages.Account.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="d-flex align-items-center justify-content-center">
+            <form method="post" class="border-dark border-2 d-flex flex-column align-items-center">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Credential.UserName" class="form-label"></label>
+                    <div style="border:1px solid black; border-radius:4px;" class="w-100">
+                        <input asp-for="Credential.UserName" class="form-control" placeholder="User Name/Email Id"
+                               style="outline:none; border:none;" />
+                    </div>
+                    <span class="text-danger" asp-validation-for="Credential.UserName"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Credential.Password" class="form-label"></label>
+                    <div class="d-flex align-items-center" style="border:1px solid black; border-radius:4px;">
+                        <input type="password" id="passwordField" asp-for="Credential.Password"
+                        class="form-control" placeholder="Enter your Password"
+                        style="outline:none; border:none;"
+                        >
+                        <span style="cursor:pointer; font-size:24px" id="togglePassword" onclick="togglePasswordVisibility()">🙈</span>
+                    </div>
+                    <span class="text-danger" asp-validation-for="Credential.Password"></span>
+                </div>
+                <div class="form-group d-flex align-items-center">
+                    <input type="checkbox" asp-for="Credential.RemeberMe" class="form-check-input" />
+                    <label asp-for="Credential.RemeberMe" class="ms-2 form-label fw-normal"></label>
+                    <span class="text-danger" asp-validation-for="Credential.RemeberMe"></span>
+                </div>
+
+                <input type="submit" value="Login" class="btn btn-outline-dark my-3 w-100" />
+            </form>
+        </div>
+
+        @if (TempData["success"] != null)
+        {
+            <div class="alert alert-success">
+                @TempData["success"]
+            </div>
+        }
+
+        @if (TempData["error"] != null)
+        {
+            <div class="alert alert-danger">
+                @TempData["error"]
+            </div>
+        }
+    </div>
+</div>
+
+
+<script>
+    function togglePasswordVisibility() {
+        var passwordInput = document.getElementById("passwordField");
+        var toggleButton = document.getElementById("togglePassword");
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            toggleButton.textContent = "🐵";
+        } else {
+            passwordInput.type = "password";
+            toggleButton.textContent = "🙈";
+        }
+    }
+</script>

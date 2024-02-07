@@ -1,0 +1,103 @@
+﻿@page "/CreatePerson"
+@model RazorPagePeople.Pages.Person.CreateModel
+@{
+    ViewData["Title"] = "Create Person";
+}
+
+<h1>Create</h1>
+
+<h4>Person</h4>
+<hr />
+
+<partial name="_LogMessage" />
+
+<div>
+    <form asp-action="Create" enctype="multipart/form-data">
+         <div class="form-group">
+            <label asp-for="Person.UserName" class="form-label"></label>
+            <input asp-for="Person.UserName" class="form-control" placeholder="Enter Your User Name" />
+            <span class="text-danger" asp-validation-for="Person.UserName"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Person.Name" class="form-label"></label>
+            <input asp-for="Person.Name" class="form-control" placeholder="Enter Your Name" />
+            <span class="text-danger" asp-validation-for="Person.Name"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Person.ImageFile" class="form-label">Profile Picture</label>
+            <input type="file" class="form-control" asp-for="Person.ImageFile" />
+            <span class="text-danger" asp-validation-for="Person.ImageFile"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Person.Password" class="form-label">Enter New Password</label>
+            <input asp-for="Person.Password" class="form-control" placeholder="Create New Password" />
+            <span class="text-danger" asp-validation-for="Person.Password"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Person.Role" class="form-label"></label>
+            <select asp-for="Person.Role" class="form-select" asp-items="Html.GetEnumSelectList<Data.Role>()">
+                <option value="">Select Role</option>
+            </select>
+            <span class="text-danger" asp-validation-for="Person.Role"></span>
+        </div>
+
+        <div class="form-group mt-3">
+            <p class="fw-bold">Please select your Gender:</p>
+            <div class="d-flex">
+                @foreach (var gender in Model.GenderOptions)
+                {
+                    <div class="form-check form-check-inline d-flex align-items-center">
+                        @if(gender == Data.Gender.MALE)
+                        {
+                            <input class="form-check-input me-2" style="cursor:pointer" asp-for="Person.Gender" type="radio" checked id="@gender" name="Gender" value="@gender">
+                        }
+                        else{
+                            <input class="form-check-input me-2" style="cursor:pointer" asp-for="Person.Gender" type="radio" id="@gender" name="Gender" value="@gender">
+                        }
+                        <label class="form-check-label pt-2 ms-1" style="cursor:pointer" for="@gender" asp-for="Person.Gender">@gender</label>
+                    </div>
+                }
+            </div>
+            <span class="text-danger" asp-validation-for="Person.Gender"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Person.City" class="form-label"></label>
+            <select asp-for ="Person.City" class="form-select" asp-items="Html.GetEnumSelectList<Data.City>()">
+                <option value="">Select City</option>
+            </select>
+            <span class="text-danger" asp-validation-for="Person.City"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Person.EmailId" class="form-label"></label>
+            <input asp-for="Person.EmailId" class="form-control" placeholder="Enter your Email Id" />
+            <span class="text-danger" asp-validation-for="Person.EmailId"></span>
+        </div>
+
+        <div class="form-group mt-3">
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+    </form>
+
+    <div class="my-2">
+        <a class="btn btn-outline-dark" asp-page="PersonsList">
+            Back to Index
+        </a>
+    </div>
+</div>
+
+
+
+@section Scripts
+{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+
