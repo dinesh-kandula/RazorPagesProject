@@ -24,7 +24,7 @@
                 <span asp-validation-for="Category.Description" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Category.Year" class="control-label"></label>
+                <label asp-for="Category.Year" class="control-label">Manufacture Year</label>
                 <input asp-for="Category.Year" min=@Model.pastYear max=@Model.presentYear class="form-control" />
                 <span asp-validation-for="Category.Year" class="text-danger"></span>
             </div>

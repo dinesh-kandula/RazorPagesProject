@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using WebApplicationRazorPages.DAL;
+using TodoApplicationRazorPages.Data;
 
-namespace WebApplicationRazorPages
+namespace TodoApplicationRazorPages
 {
     public class Program
     {
@@ -12,11 +12,11 @@ namespace WebApplicationRazorPages
             // Add services to the container.
             builder.Services.AddRazorPages();
 
-            builder.Services.AddDbContext<AppDbContext>(options =>
-                options.UseSqlServer
-                (builder.Configuration.GetConnectionString
-                ("DefaultConnection"))
-              );
+            builder.Services.AddDbContext<TodoDbContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DBConnection")
+               ?? throw new InvalidOperationException("Connection string 'TodoDbContext' not found.")));
+
+            //builder.Services.AddTransient<IFileService, FileService>();
 
             var app = builder.Build();
 
@@ -29,11 +29,14 @@ namespace WebApplicationRazorPages
             }
 
             app.UseHttpsRedirection();
+
             app.UseStaticFiles();
 
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseAuthentication();
 
             app.MapRazorPages();
 

@@ -1,0 +1,59 @@
+﻿@* Todo Index Page *@
+@model IEnumerable<TodoModels.Models.Todo>
+@using Kendo.Mvc.UI
+@{
+    ViewData["Title"] = "Index";
+}
+
+<body>
+    <div class="container">
+        <div class="row">
+            <p>
+                <a asp-action="Create">Create New</a>
+            </p>
+            <div>
+                <h1>Todo Index Page</h1>
+                
+            </div>
+            <div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th> @Html.DisplayNameFor(model => model.TodoId) </th>
+                            <th> @Html.DisplayNameFor(model => model.Title) </th>
+                            <th> @Html.DisplayNameFor(model => model.Description) </th>
+                            <th> @Html.DisplayNameFor(model => model.Status) </th>
+                            <th> @Html.DisplayNameFor(model => model.Priority) </th>
+                            <th> @Html.DisplayNameFor(model => model.CreatedDate) </th>
+                            <th> @Html.DisplayNameFor(model => model.UpdatedDate) </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td> @Html.DisplayFor(modelItem => item.TodoId) </td>
+                                <td> @Html.DisplayFor(modelItem => item.Title) </td>
+                                <td> @Html.DisplayFor(modelItem => item.Description) </td>
+
+                                <td style="color: @(item.Status == TodoModels.Models.Status.TODO ? "red" : item.Status == TodoModels.Models.Status.WORKING ? "yellow" : "green");"
+                                > 
+                                @Html.DisplayFor(modelItem => item.Status) </td>
+                                
+                                <td> @Html.DisplayFor(modelItem => item.Priority) </td>
+                                <td> @Html.DisplayFor(modelItem => item.CreatedDate) </td>
+                                <td> @Html.DisplayFor(modelItem => item.UpdatedDate) </td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-Id="@item.TodoId">Edit</a> |
+                                    <a asp-action="Details" asp-route-Id="@item.TodoId">Details</a> |
+                                    <a asp-action="Delete" class="text-danger" asp-route-Id="@item.TodoId">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>

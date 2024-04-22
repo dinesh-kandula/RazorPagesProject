@@ -43,13 +43,12 @@ namespace RazorPagePeople.Pages.Person
             {
                 TempData["error"] = "ModelState is Invalid";
                 return Page();
-
             }
+
             try
             {
                 if (Person == null)
                     return NotFound();
-
 
                 string? oldImagePath = Person.Profile;
 

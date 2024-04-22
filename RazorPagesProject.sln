@@ -3,13 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34408.163
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplicationRazorPages", "WebApplicationRazorPages\WebApplicationRazorPages.csproj", "{B3BE6839-0DF4-41A2-B603-CEE258D6810F}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoviesRazorPages", "MoviesRazorPages\MoviesRazorPages.csproj", "{67F968BB-922D-4FC2-A29B-515C93752372}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RazorPagePeople", "RazorPagePeople\RazorPagePeople.csproj", "{F10E5D48-D754-4B22-ACDE-E0964EB67903}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQ", "LINQ\LINQ.csproj", "{68515757-1C8C-4332-ADF0-E86871ACA738}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoWebApplication", "TodoWebApplication\TodoWebApplication.csproj", "{288D6C93-5A0E-42EA-815C-0C8D12183A7D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B3FCA6A1-3C7F-436B-92BF-4EA26E2C1E33}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelerikAspNetCoreApp1", "TelerikAspNetCoreApp1\TelerikAspNetCoreApp1.csproj", "{1A5B68DA-02C8-4C44-93DB-459E2036C5ED}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoModels", "..\DividedCode\TodoModels\TodoModels.csproj", "{94C7CF3E-D1D7-46B8-AD87-84F89D1AB410}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +24,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B3BE6839-0DF4-41A2-B603-CEE258D6810F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B3BE6839-0DF4-41A2-B603-CEE258D6810F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B3BE6839-0DF4-41A2-B603-CEE258D6810F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B3BE6839-0DF4-41A2-B603-CEE258D6810F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{67F968BB-922D-4FC2-A29B-515C93752372}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{67F968BB-922D-4FC2-A29B-515C93752372}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67F968BB-922D-4FC2-A29B-515C93752372}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -29,13 +32,25 @@ Global
 		{F10E5D48-D754-4B22-ACDE-E0964EB67903}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F10E5D48-D754-4B22-ACDE-E0964EB67903}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F10E5D48-D754-4B22-ACDE-E0964EB67903}.Release|Any CPU.Build.0 = Release|Any CPU
-		{68515757-1C8C-4332-ADF0-E86871ACA738}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{68515757-1C8C-4332-ADF0-E86871ACA738}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{68515757-1C8C-4332-ADF0-E86871ACA738}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{68515757-1C8C-4332-ADF0-E86871ACA738}.Release|Any CPU.Build.0 = Release|Any CPU
+		{288D6C93-5A0E-42EA-815C-0C8D12183A7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{288D6C93-5A0E-42EA-815C-0C8D12183A7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{288D6C93-5A0E-42EA-815C-0C8D12183A7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{288D6C93-5A0E-42EA-815C-0C8D12183A7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A5B68DA-02C8-4C44-93DB-459E2036C5ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A5B68DA-02C8-4C44-93DB-459E2036C5ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A5B68DA-02C8-4C44-93DB-459E2036C5ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A5B68DA-02C8-4C44-93DB-459E2036C5ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94C7CF3E-D1D7-46B8-AD87-84F89D1AB410}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94C7CF3E-D1D7-46B8-AD87-84F89D1AB410}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94C7CF3E-D1D7-46B8-AD87-84F89D1AB410}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94C7CF3E-D1D7-46B8-AD87-84F89D1AB410}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1A5B68DA-02C8-4C44-93DB-459E2036C5ED} = {B3FCA6A1-3C7F-436B-92BF-4EA26E2C1E33}
+		{94C7CF3E-D1D7-46B8-AD87-84F89D1AB410} = {B3FCA6A1-3C7F-436B-92BF-4EA26E2C1E33}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FB3850AD-50E4-4101-A503-C1718E084F89}

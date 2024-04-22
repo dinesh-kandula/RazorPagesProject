@@ -28,9 +28,12 @@ namespace RazorPagePeople
                 options.LoginPath = "/Account/Login";
                 options.AccessDeniedPath = "/AccessDenied";
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+                options.LogoutPath = "/Account/Logout";
             });
 
             //adding policy for authorization
+
+            
             builder.Services.AddAuthorization(options =>
             {
                 options.AddPolicy("ADMIN", 

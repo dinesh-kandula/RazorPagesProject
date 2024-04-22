@@ -58,6 +58,5 @@ namespace RazorPagePeople.Data
 
         [NotMapped]
         public IFormFile? ImageFile { get; set; }
-
     }
 }

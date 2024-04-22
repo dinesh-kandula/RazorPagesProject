@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using NuGet.ContentModel;
 using RazorPagePeople.Data;
 using Syncfusion.EJ2.Base;
 using Syncfusion.EJ2.Linq;

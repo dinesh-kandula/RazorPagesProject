@@ -10,7 +10,7 @@ using RazorPagePeople.Data;
 
 namespace RazorPagePeople.Pages.Category
 {
-    [Authorize(Policy = "ADMIN")]
+    [Authorize]
     public class CreateModel : PageModel
     {
         private readonly RazorPagePeople.Data.PersonDatabaseContext _context;

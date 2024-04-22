@@ -1,0 +1,37 @@
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace TodoApplicationRazorPages.Model
+{
+    public enum Gender
+    {
+        MALE, FEMALE, OTHER
+    }
+
+    public class User
+    {
+        [Key]
+        public Guid UserId { get; set; }
+
+        [DisplayName("User Name"), Required, StringLength(60, MinimumLength = 3)]
+        public required string Name { get; set; }
+
+        [DataType(DataType.Date), DisplayName("Date Of Birth")]
+        public DateTime DOB { get; set; }
+
+        public Gender Gender { get; set; }
+
+        [DisplayName("Profile Picture")]
+        public string? Profile { get; set; }
+
+        [NotMapped]
+        public IFormFile? ImageFile { get; set; }
+
+        // One to One Realationship b/w User and credentials each user have only one credentials details
+        // and each credentails details are belong to one user only
+        public Credential Credential { get; set; }
+
+        public ICollection<Todo> Todo { get; set; }
+    }
+}
